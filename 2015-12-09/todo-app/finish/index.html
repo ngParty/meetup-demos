@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo App - TS + ng-metadata</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script>
+        System.config( {
+            baseURL: '/',
+            paths: {
+                "npm:*": "./node_modules/*"
+            },
+
+            meta: {
+                "npm:angular": {
+                    "format": "global",
+                    "exports": "angular"
+                }
+            },
+
+            //map tells the System loader where to look for things
+            map: {
+                angular: 'npm:angular',
+                'ng-metadata/ng-metadata': 'npm:ng-metadata',
+                app: "./built"
+            },
+
+            //packages defines our app package
+            packages: {
+                app: {
+                    main: './main',
+                    defaultExtension: 'js'
+                },
+                'ng-metadata/ng-metadata': {
+                    main: './ng-metadata',
+                    defaultExtension: 'js'
+                },
+                angular: {
+                    main: './angular',
+                    defaultExtension: 'js'
+                }
+            }
+
+        } );
+    </script>
+    <script>
+        System.import( 'app' )
+            .then( console.log( 'APP loaded!' ) )
+            .catch( console.error.bind( console ) );
+    </script>
+</head>
+<body>
+
+<todo-app> Loading...</todo-app>
+
+</body>
+</html>
