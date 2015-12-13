@@ -1,0 +1,29 @@
+{
+  "name": "finish",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "typings": "typings install",
+    "postinstall": "npm run typings",
+    "build": "NODE_ENV=production webpack && cp index.html dist/index.html"
+  },
+  "keywords": [],
+  "author": "Martin Hochel <hochelmartin@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "1.4.8",
+    "ng-metadata": "1.0.0-beta.4"
+  },
+  "devDependencies": {
+    "css-loader": "0.23.0",
+    "style-loader": "0.13.0",
+    "ts-loader": "0.7.2",
+    "typescript": "1.7.3",
+    "typings": "0.3.0",
+    "webpack": "1.12.9",
+    "webpack-dev-server": "1.14.0"
+  }
+}
