@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --colors",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "typings": "typings install",
+    "start": "webpack-dev-server",
+    "test": "NODE_ENV=test karma start",
+    "test:live": "NODE_ENV=test karma start --auto-watch --no-single-run",
+    "typings": "rimraf typings && tsd reinstall -so",
     "postinstall": "npm run typings",
-    "build": "NODE_ENV=production webpack && cp index.html dist/index.html"
+    "build": "npm run clean && NODE_ENV=production webpack && cp index.html dist/index.html",
+    "clean": "rimraf dist"
   },
   "keywords": [],
   "author": "Martin Hochel <hochelmartin@gmail.com>",
@@ -18,11 +20,22 @@
     "ng-metadata": "1.0.0-beta.4"
   },
   "devDependencies": {
+    "angular-mocks": "1.4.8",
+    "chai": "3.4.1",
     "css-loader": "0.23.0",
+    "karma": "0.13.15",
+    "karma-chai": "0.1.0",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-mocha": "0.2.1",
+    "karma-mocha-reporter": "1.1.3",
+    "karma-sourcemap-loader": "0.3.6",
+    "karma-webpack": "1.7.0",
+    "mocha": "2.3.4",
+    "rimraf": "2.4.4",
     "style-loader": "0.13.0",
     "ts-loader": "0.7.2",
+    "tsd": "0.6.5",
     "typescript": "1.7.3",
-    "typings": "0.3.0",
     "webpack": "1.12.9",
     "webpack-dev-server": "1.14.0"
   }

@@ -31,16 +31,24 @@ var webpackConfig = {
     ]
   },
 
-
   devServer: {
-    inline: true
+    inline: true,
+    colors: true,
+    progress: true
   },
 
   devtool: 'eval-source-map'
 
 };
 
-
+if(process.env.NODE_ENV === 'test'){
+    
+  webpackConfig.devtool = 'source-map';
+  delete webpackConfig.devServer;
+  delete webpackConfig.entry;
+  delete webpackConfig.output;
+  
+}
 if (process.env.NODE_ENV === 'production') {
 
   console.info('production mode! \n')

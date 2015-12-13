@@ -1,8 +1,0 @@
-{
-  "dependencies": {},
-  "devDependencies": {},
-  "ambientDependencies": {
-    "angular": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/master/angularjs/angular.d.ts",
-    "jquery": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/master/jquery/jquery.d.ts"
-  }
-}
